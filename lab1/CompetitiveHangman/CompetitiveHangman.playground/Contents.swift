@@ -147,7 +147,7 @@ private func runSelfChecks() throws {
     require(!aliceStrategyContexts.isEmpty, "strategy receives a public information context")
     let contextLabels = Mirror(reflecting: aliceStrategyContexts[0]).children.compactMap(\.label)
     require(contextLabels.contains("visiblePattern") && !contextLabels.contains("secretWord"), "strategy context has no hidden solution field")
-    require(aliceStrategyContexts[1].visiblePattern == "_ A _", "strategy sees the current revealed pattern")
+    require(aliceStrategyContexts[1].visiblePattern == "A _ A", "strategy sees the current revealed pattern")
 
     // Six wrong letters end the round and each player receives the correct penalty.
     let losingGame = try Game(
