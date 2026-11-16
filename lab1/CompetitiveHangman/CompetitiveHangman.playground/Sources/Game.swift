@@ -85,11 +85,13 @@ public final class Game {
     public func run() throws {
         guard state == .idle else { throw GameError.gameAlreadyStarted }
 
-        emit(.gameStarted(playerNames: players.map(\.name), rounds: roundsToPlay))
         var roundNumber = 1
 
         while roundNumber <= roundsToPlay {
             try transition(to: .startingRound(round: roundNumber))
+            if roundNumber == 1 {
+                emit(.gameStarted(playerNames: players.map(\.name), rounds: roundsToPlay))
+            }
 
             let solution = dictionary.randomWord(using: &randomGenerator)
             let puzzle: WordGuessing = try WordPuzzle(word: solution)
