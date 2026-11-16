@@ -207,6 +207,7 @@ public final class Game {
                 roundNumber += 1
             } else {
                 try transition(to: .finished)
+                break
             }
         }
 
