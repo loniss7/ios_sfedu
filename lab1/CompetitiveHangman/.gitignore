@@ -1,0 +1,9 @@
+# Xcode / Swift Playground local state
+*.xcuserstate
+xcuserdata/
+DerivedData/
+.build/
+
+# macOS metadata
+.DS_Store
+._*

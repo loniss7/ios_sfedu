@@ -1,0 +1,26 @@
+# Xcode user-specific state
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Xcode and Swift build products
+build/
+DerivedData/
+.build/
+*.hmap
+*.ipa
+*.xcarchive/
+*.dSYM
+*.dSYM.zip
+
+# Dependency build output
+Carthage/Build/
+Pods/
+
+# macOS metadata and AppleDouble files (including __MACOSX from ZIP archives)
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+__MACOSX/
