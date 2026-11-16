@@ -40,11 +40,7 @@ private final class RecordingObserver: GameObserver {
 }
 
 private func require(_ condition: @autoclosure () -> Bool, _ message: String) {
-    guard condition() else {
-        let failure = "Self-check failed: \(message)"
-        ErrorFileLogger.record(message: failure, sourceFile: #filePath)
-        fatalError(failure)
-    }
+    precondition(condition(), "Self-check failed: \(message)")
 }
 
 private func wordsPlayed(in observer: RecordingObserver) -> [String] {
@@ -298,6 +294,5 @@ do {
     print("Solved words: \(statistics.statistics.successfullySolvedWords)")
     print("Lifecycle delegate recorded \(lifecycleDelegate.startedRounds.count) round starts and \(lifecycleDelegate.completedRounds.count) round completions.")
 } catch {
-    ErrorFileLogger.record(error, sourceFile: #filePath)
     fatalError("Competitive Hangman failed: \(error)")
 }
